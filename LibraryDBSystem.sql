@@ -23,6 +23,18 @@ isAvailable	BOOLEAN NOT NULL,
 PRIMARY KEY Lib_Item (itemID, title)
 );
 
+# Insert into ITEM Table
+INSERT INTO ITEM (itemID, title, genre, isAvailable)
+VALUES
+(1000000000001, 'The Chronicles of Narnia', 'Fiction', 1),
+(1000000000002, 'The Great Gatsby', 'Fiction', 1),
+(1000000000003, 'Harry Potter and the Sorcerer''s Stone', 'Fiction', 1),
+(1000000000004, 'Physics for Engineers', 'Non-fiction', 1),
+(1000000000005, 'To Kill a Mockingbird', 'Fiction', 1),
+(1000000000006, 'Pride and Prejudice', 'Fiction', 1),
+(1000000000007, 'A Brief History of Time', 'Non-fiction', 1),
+(1000000000008, 'World History: A Global Perspective', 'Non-fiction', 1);
+
 # Creating book and cd tables
 # Insert data into BOOK table
 INSERT INTO BOOK (ItemID, Title, Publisher, Author) VALUES
@@ -137,6 +149,12 @@ DeptName VARCHAR(255) UNIQUE NOT NULL,
 
 PRIMARY KEY (DeptNo)
 );
+# Insert into DEPARTMENT
+INSERT INTO DEPARTMENT (Location, EmployeeCount, DeptName) 
+VALUES
+('First Floor', 5, 'Children Section'),
+('Second Floor', 4, 'Historical Fiction Section'),
+('Basement', 6, 'Research Section');
 
 # creating EVENTS table
 # Insert data into EVENTS table
