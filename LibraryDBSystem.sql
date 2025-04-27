@@ -23,17 +23,7 @@ isAvailable	BOOLEAN NOT NULL,
 PRIMARY KEY Lib_Item (itemID, title)
 );
 
-# Insert into ITEM Table
-INSERT INTO ITEM (itemID, title, genre, isAvailable)
-VALUES
-(1000000000001, 'The Chronicles of Narnia', 'Fiction', 1),
-(1000000000002, 'The Great Gatsby', 'Fiction', 1),
-(1000000000003, 'Harry Potter and the Sorcerer''s Stone', 'Fiction', 1),
-(1000000000004, 'Physics for Engineers', 'Non-fiction', 1),
-(1000000000005, 'To Kill a Mockingbird', 'Fiction', 1),
-(1000000000006, 'Pride and Prejudice', 'Fiction', 1),
-(1000000000007, 'A Brief History of Time', 'Non-fiction', 1),
-(1000000000008, 'World History: A Global Perspective', 'Non-fiction', 1);
+
 
 # Creating book and cd tables
 
@@ -56,16 +46,7 @@ CREATE TABLE CD (
   PRIMARY KEY (ItemID, Title), 
   FOREIGN KEY (ItemID, Title) REFERENCES ITEM(ItemID, Title) 
 );
-# Insert data into BOOK table
-INSERT INTO BOOK (ItemID, Title, Publisher, Author) VALUES
-(9781234567890, 'The Great Adventure', 'Adventure Press', 'James Wilson'),
-(9782345678901, 'Science Fundamentals', 'Science Publishing', 'Dr. Alice Brown'),
-(9783456789012, 'History of Art', 'Art Books Inc', 'Prof. Charles Lee'),
-(9784567890123, 'Mystery at Midnight', 'Mystery House', 'Sarah Johnson'),
-(9785678901234, 'Programming Basics', 'Tech Publications', 'Mark Davis'),
-(9786789012345, 'Fantasy Kingdom', 'Imagination Press', 'Emily Clark'),
-(9789012345678, 'The Hidden Truth', 'Truth Seekers', 'Robert Miller'),
-(9780123456789, 'World Geography', 'Global Publishers', 'Dr. Lisa Wong');
+
 
 # Insert data into CD table
 INSERT INTO CD (ItemID, Title, Director, starActor) VALUES
@@ -82,18 +63,7 @@ CREATE TABLE MEMBER (
   PhoneNumber INT(9),             
   PRIMARY KEY (MemberID)        
 );
-# Insert data into MEMBER tbale
-  INSERT INTO MEMBER (MemberID, FirstName, LastName, Email, PhoneNumber) VALUES
-  (100001, 'Alex', 'Taylor', 'alex.t@gmail.com', 2141112222),
-  (100002, 'Maria', 'Garcia', 'maria.g@yahoo.com', 2142223333),
-  (100003, 'Daniel', 'Martinez', 'dan.m@outlook.com', 2143334444),
-  (100004, 'Sophia', 'Anderson', 'sophia.a@gmail.com', 2144445555),
-  (100005, 'William', 'Thomas', 'will.t@yahoo.com', 2145556666),
-  (100006, 'Olivia', 'Jackson', 'olivia.j@gmail.com', 2146667777),
-  (100007, 'James', 'White', 'james.w@outlook.com', 2147778888),
-  (100008, 'Emma', 'Harris', 'emma.h@gmail.com', 2148889999),
-  (100009, 'Benjamin', 'Martin', 'ben.m@yahoo.com', 2149990000),
-  (100010, 'Ava', 'Thompson', 'ava.t@gmail.com', 2140001111);
+
 
 # Creating Loan Table
 DROP TABLE IF EXISTS LOAN;
@@ -108,14 +78,7 @@ CREATE TABLE LOAN (
   FOREIGN KEY (ItemID) REFERENCES ITEM(ItemID)        
 );
 
-# Insert  data into LOAN Table
-INSERT INTO LOAN (MemberID, ItemID, LoanDate, DueDate)
-VALUES
-(200001, 1000000000001, '2025-04-10', '2025-05-10'),
-(200002, 1000000000002, '2025-04-12', '2025-05-12'),
-(200003, 1000000000003, '2025-04-15', '2025-05-15'),
-(200004, 1000000000004, '2025-04-18', '2025-05-18'),
-(200005, 1000000000005, '2025-04-20', '2025-05-20');
+
 
 # creating EMPLOYEE table
 DROP TABLE IF EXISTS EMPLOYEE;
@@ -134,17 +97,6 @@ PRIMARY KEY (EmployeeID)
 
 );
 
-# Insert data into EMPLOYEE table
-  INSERT INTO EMPLOYEE (DeptNO, FirstName, LastName, Email, PhoneNumber, Salary, Role) VALUES
-  (1,'John', 'Doe', 'johndoe@library.com', 2145551234, 45000, 'Librarian'),
-  (1,'Jane', 'Smith', 'janesmith@library.com', 2145552345, 42000, 'Librarian'),
-  (2,'Robert', 'Johnson', 'robertjohnson@library.com', 2145553456, 43000, 'Manager'),
-  (2, 'Emily', 'Williams', 'ewilliams@library.com', 2145554567, 43000, 'Librarian'),
-  (3, 'Michael', 'Brown', 'mbrown@library.com', 2145555678, 40000, 'Librarian'),
-  (4, 'Sarah', 'Davis', 'sdavis@library.com', 2145556789, 41000, 'Librarian'),
-  (5, 'David', 'Miller', 'dmiller@library.com', 2145557890, 38000, 'Volunteer'),
-  (5, 'Jessica', 'Wilson', 'jwilson@library.com', 2145558901, 39000, 'Maintenance');
-
 
 # creating DEPARTMENT table
 
@@ -158,12 +110,6 @@ DeptName VARCHAR(255) UNIQUE NOT NULL,
 PRIMARY KEY (DeptNo)
 );
 
-# Insert data into DEPARTMENT Table
-INSERT INTO DEPARTMENT (Location, EmployeeCount, DeptName) 
-VALUES
-('First Floor', 5, 'Children Section'),
-('Second Floor', 4, 'Historical Fiction Section'),
-('Basement', 6, 'Research Section');
 
 # creating EVENTS table 
 DROP TABLE IF EXISTS EVENTS;
@@ -177,12 +123,5 @@ EDate DATE NOT NULL,
 PRIMARY KEY (EventID),
 CONSTRAINT FK_SupervisorID FOREIGN KEY (SupervisorID) REFERENCES EMPLOYEE(EmployeeID)
 );
-# Insert data into EVENTS table
-  INSERT INTO EVENTS (SupervisorID, Title, Location, EDate) VALUES
-  (3, 'Children\'s Story Time', 'First Floor', '2025-05-15'),
-  (1, 'Book Club Meeting', 'Second Floor', '2025-05-20'),
-  (4, 'Author Reading', 'First Floor', '2025-05-25'),
-  (6, 'Research Workshop', 'Basement', '2025-06-01'),
-  (2, 'Summer Reading Kickoff', 'First Floor', '2025-06-05');
 
 
