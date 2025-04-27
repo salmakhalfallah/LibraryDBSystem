@@ -48,10 +48,6 @@ CREATE TABLE CD (
 );
 
 
-# Insert data into CD table
-INSERT INTO CD (ItemID, Title, Director, starActor) VALUES
-(9787890123456, 'Classical Music Collection', 'Leonard Bernstein', 'N/A'),
-(9788901234567, 'Modern Jazz Hits', 'Miles Davis', 'N/A');
 
 # Creating Member Table
 DROP TABLE IF EXISTS MEMBER;
