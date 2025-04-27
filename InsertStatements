@@ -21,6 +21,12 @@ INSERT INTO BOOK (ItemID, Title, Publisher, Author) VALUES
 (9789012345678, 'The Hidden Truth', 'Truth Seekers', 'Robert Miller'),
 (9780123456789, 'World Geography', 'Global Publishers', 'Dr. Lisa Wong');
 
+
+# Insert data into CD table
+INSERT INTO CD (ItemID, Title, Director, starActor) VALUES
+(9787890123456, 'Classical Music Collection', 'Leonard Bernstein', 'N/A'),
+(9788901234567, 'Modern Jazz Hits', 'Miles Davis', 'N/A');
+
 # Insert data into MEMBER tbale
 INSERT INTO MEMBER (MemberID, FirstName, LastName, Email, PhoneNumber) VALUES
 (100001, 'Alex', 'Taylor', 'alex.t@gmail.com', 2141112222),
