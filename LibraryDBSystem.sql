@@ -106,3 +106,20 @@ CREATE TABLE EVENTS (
   PRIMARY KEY (EventID),
   FOREIGN KEY (SupervisorID) REFERENCES EMPLOYEE(EmployeeID)
 );
+
+# Sample Queries 
+-- Show count of the largest population (how many books are in the library?)
+SELECT COUNT(*) AS TotalBooks FROM BOOK;
+
+-- Show a listing of a key entity in the database (who are the librarians in the library?)
+SELECT * FROM EMPLOYEE WHERE Role = 'Librarian';
+
+-- Show a list of entities that must function together (how many librarians work in a specific department?)
+SELECT d.DeptName, COUNT(e.EmployeeID) AS NumberOfLibrarians
+FROM DEPARTMENT d
+JOIN EMPLOYEE e ON d.DeptNo = e.DeptNo
+WHERE e.Role = 'Librarian'
+GROUP BY d.DeptName;
+
+-- Show a schedule for multiple occurrences, sorted by date and time (when will certain events occur in the library?)
+SELECT Title, Location, EDate FROM EVENTS ORDER BY EDate;
