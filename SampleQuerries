@@ -1,0 +1,40 @@
+-- Verify all tables have the correct number of records
+SELECT 'DEPARTMENT' AS TableName, COUNT(*) AS RecordCount FROM DEPARTMENT
+UNION SELECT 'EMPLOYEE', COUNT(*) FROM EMPLOYEE
+UNION SELECT 'ITEM', COUNT(*) FROM ITEM
+UNION SELECT 'BOOK', COUNT(*) FROM BOOK
+UNION SELECT 'CD', COUNT(*) FROM CD
+UNION SELECT 'MEMBER', COUNT(*) FROM MEMBER
+UNION SELECT 'LOAN', COUNT(*) FROM LOAN
+UNION SELECT 'EVENTS', COUNT(*) FROM EVENTS;
+
+-- Check foreign key constraints
+-- All loans should have valid MemberID and ItemID
+SELECT COUNT(*) AS InvalidLoans
+FROM LOAN l
+LEFT JOIN MEMBER m ON l.MemberID = m.MemberID
+LEFT JOIN ITEM i ON l.ItemID = i.ItemID
+WHERE m.MemberID IS NULL OR i.ItemID IS NULL;
+
+-- All books and CDs should have matching items
+SELECT COUNT(*) AS OrphanedBooks
+FROM BOOK b
+LEFT JOIN ITEM i ON b.ItemID = i.ItemID
+WHERE i.ItemID IS NULL;
+
+SELECT COUNT(*) AS OrphanedCDs
+FROM CD c
+LEFT JOIN ITEM i ON c.ItemID = i.ItemID
+WHERE i.ItemID IS NULL;
+
+-- All employees should belong to existing departments
+SELECT COUNT(*) AS InvalidEmployeeDepts
+FROM EMPLOYEE e
+LEFT JOIN DEPARTMENT d ON e.DeptNo = d.DeptNo
+WHERE d.DeptNo IS NULL;
+
+-- All events should have valid supervisors
+SELECT COUNT(*) AS InvalidEventSupervisors
+FROM EVENTS e
+LEFT JOIN EMPLOYEE emp ON e.SupervisorID = emp.EmployeeID
+WHERE emp.EmployeeID IS NULL;
