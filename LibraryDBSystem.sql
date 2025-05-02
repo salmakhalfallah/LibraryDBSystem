@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS ITEM;
 -- Create ITEM table
 CREATE TABLE ITEM (
   ItemID INT(13) NOT NULL,
-  Title VARCHAR(45) NOT NULL,
+  Title VARCHAR(255) NOT NULL,
   Genre SET('Fiction', 'Non-fiction') NOT NULL,
   isAvailable BOOLEAN NOT NULL,
   PRIMARY KEY (ItemID, Title)
@@ -30,7 +30,7 @@ CREATE TABLE ITEM (
 -- Create BOOK table
 CREATE TABLE BOOK (
   ItemID INT(13) NOT NULL,
-  Title VARCHAR(45) NOT NULL,
+  Title VARCHAR(255) NOT NULL,
   Publisher VARCHAR(255),
   Author VARCHAR(255),
   PRIMARY KEY (ItemID, Title),
@@ -40,7 +40,7 @@ CREATE TABLE BOOK (
 -- Create CD table
 CREATE TABLE CD (
   ItemID INT(13) NOT NULL,
-  Title VARCHAR(45) NOT NULL,
+  Title VARCHAR(255) NOT NULL,
   Director VARCHAR(255),
   starActor VARCHAR(255),
   PRIMARY KEY (ItemID, Title),
@@ -53,7 +53,7 @@ CREATE TABLE MEMBER (
   FirstName VARCHAR(255),
   LastName VARCHAR(255),
   Email VARCHAR(255),
-  PhoneNumber INT(9),
+  PhoneNumber BIGINT(9),
   PRIMARY KEY (MemberID)
 );
 
