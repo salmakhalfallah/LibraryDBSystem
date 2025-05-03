@@ -91,7 +91,7 @@ CREATE TABLE LOAN (
   Status BOOLEAN,
   Fine INT(4),
   PRIMARY KEY (LoanID),
-  FOREIGN KEY (MemberID) REFERENCES MEMBER(MemberID),
+  FOREIGN KEY (MemberID) REFERENCES MEMBER(MemberID)
 );
 
 -- Create EVENTS table
